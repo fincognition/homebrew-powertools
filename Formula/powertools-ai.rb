@@ -5,15 +5,15 @@ class PowertoolsAi < Formula
   sha256 "801b35a272a59946ea6cc35ae9f84a9263893a7a424897051576cef7bdf90ec7"
   license "MIT"
 
+  depends_on "uv"
   depends_on "python@3.12"
   depends_on :macos => :sonoma
   depends_on arch: :arm64
 
   def install
-    # Create venv manually with pip
-    system Formula["python@3.12"].opt_bin/"python3.12", "-m", "venv", libexec
-    # Install the package
-    system libexec/"bin/pip", "install", "powertools-ai[mlx]==#{version}"
+    # Use uv to create venv and install package
+    system "uv", "venv", libexec, "--python", Formula["python@3.12"].opt_bin/"python3.12"
+    system "uv", "pip", "install", "--python", libexec/"bin/python", "powertools-ai[mlx]==#{version}"
     # Symlink binaries
     bin.install_symlink libexec/"bin/pt"
     bin.install_symlink libexec/"bin/powertools-embed"
