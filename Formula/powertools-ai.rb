@@ -1,8 +1,8 @@
 class PowertoolsAi < Formula
   desc "Agentic workflow toolkit with persistent memory and task tracking"
   homepage "https://github.com/fincognition/powertools"
-  url "https://github.com/fincognition/powertools/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "801b35a272a59946ea6cc35ae9f84a9263893a7a424897051576cef7bdf90ec7"
+  url "https://github.com/fincognition/powertools/releases/download/v1.1.2/powertools_ai-1.1.2-py3-none-any.whl"
+  sha256 "86efede77dff6476725c622fdb375247267e2b1327965e6348bbafb3fcfcb170"
   license "MIT"
 
   depends_on "uv"
