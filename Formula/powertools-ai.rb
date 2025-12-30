@@ -12,7 +12,11 @@ class PowertoolsAi < Formula
   depends_on arch: :arm64
 
   def install
-    virtualenv_create(libexec, "python3.12")
+    # Create virtualenv with pip included
+    venv = virtualenv_create(libexec, "python3.12", system_site_packages: false)
+    # Install package from PyPI with mlx extras
+    system libexec/"bin/python", "-m", "ensurepip", "--upgrade"
+    system libexec/"bin/pip", "install", "--upgrade", "pip"
     system libexec/"bin/pip", "install", "powertools-ai[mlx]==#{version}"
     bin.install_symlink libexec/"bin/pt"
     bin.install_symlink libexec/"bin/powertools-embed"
