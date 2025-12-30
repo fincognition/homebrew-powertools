@@ -14,8 +14,8 @@ class PowertoolsAi < Formula
   def install
     virtualenv_create(libexec, "python3.12")
     system libexec/"bin/pip", "install", "powertools-ai[mlx]==#{version}"
-    bin.install_symlink Dir[libexec/"bin/pt"]
-    bin.install_symlink Dir[libexec/"bin/powertools-embed"]
+    bin.install_symlink libexec/"bin/pt"
+    bin.install_symlink libexec/"bin/powertools-embed"
   end
 
   def caveats
