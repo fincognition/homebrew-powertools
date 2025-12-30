@@ -7,9 +7,8 @@
   "packageRules": [
     {
       "matchManagers": ["homebrew"],
-      "matchPackageNames": ["fincognition/powertools"],
+      "matchPackageNames": ["powertools-ai"],
       "automerge": true
     }
   ]
 }
-
